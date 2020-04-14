@@ -1,12 +1,31 @@
 // from data.js
 var tableData = data;
+console.log(data)
+var tbody = d3.select("tbody");
+var i;
+    for (i = 0; i < data.length; i++) {
+    // Append one table row `tr` to the table body
+    var row = tbody.append("tr");
+
+    // Append one cell for the student name
+    row.append("td").text(data[i].datetime);
+
+    // Append one cell for the student grade
+    row.append("td").text(data[i].city);
+    row.append("td").text(data[i].state);
+    row.append("td").text(data[i].country);
+    row.append("td").text(data[i].shape);
+    row.append("td").text(data[i].durationMinutes);
+    row.append("td").text(data[i].comments);
+    }
+
 
 var button = d3.select("#filter-btn");
 
 button.on("click", function() {
 
     // Use D3 to select the table
-    var tbody = d3.select("tbody");
+
     // clear if exists
     tbody.selectAll("tr").remove();
 
